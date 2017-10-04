@@ -1,0 +1,69 @@
+[
+	{ "keys": ["super+alt+z"], "command": "sublimerge"},
+	{ "keys": ["super+alt+d"], "command": "docphp_show_definition"},
+	{ "keys": ["super+alt+s"], "command": "docphp_search", "args": {"at_point": false}},
+  { "keys": ["super+v"], "command": "paste_and_indent" },
+  { "keys": ["super+shift+v"], "command": "paste" },
+  { "keys": ["super+alt+f"], "command": "code_formatter"},
+  { "keys": ["alt+w"], "command": "sass_beautify"},
+  {
+    "keys": ["super+shift+t"],
+    "command": "open_terminal",
+    "args": {
+      "parameters": ["-T", "Sublime Terminal Current Directory %CWD%"]
+    }
+  },
+  {
+    "keys": ["super+shift+alt+t"],
+    "command": "open_terminal_project_folder",
+    "args": {
+    "parameters": ["-T", "Sublime Text Project Directory %CWD%"]
+    }
+  },
+  {
+    "keys": ["tab"], 
+    "command": "expand_abbreviation_by_tab", 
+
+    // put comma-separated syntax selectors for which 
+    // you want to expandEmmet abbreviations into "operand" key 
+    // instead of SCOPE_SELECTOR.
+    // Examples: source.js, text.html - source
+    "context": [
+      {
+        "operand": "SCOPE_SELECTOR", 
+        "operator": "equal", 
+        "match_all": true, 
+        "key": "selector"
+      }, 
+
+      // run only if there's no selected text
+      {
+        "match_all": true, 
+        "key": "selection_empty"
+      },
+
+      // don't work if there are active tabstops
+      {
+        "operator": "equal", 
+        "operand": false, 
+        "match_all": true, 
+        "key": "has_next_field"
+      }, 
+
+      // don't work if completion popup is visible and you
+      // want to insert completion with Tab. If you want to
+      // expand Emmet with Tab even if popup is visible -- 
+      // remove this section
+      {
+        "operand": false, 
+        "operator": "equal", 
+        "match_all": true, 
+        "key": "auto_complete_visible"
+      }, 
+      {
+        "match_all": true, 
+        "key": "is_abbreviation"
+      }
+    ]
+  }
+]
